@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import AddRoomComponent from './components/room/AddRoomComponent';
+import ExistingRooms from './components/room/ExitstingRooms'
+import './components/styles/index.css'; // Import index.css file
+import Home from './components/home/Home';
+import EditRoomComponent from './components/room/EditRoomComponent';
+import NavBar from './components/layout/NavBar'; // Import NavBar component
+import Footer from './components/layout/Footer'; // Import Footer component
+import RoomListing from './components/room/RoomListing';
+import Admin from './components/admin/Admin';
 
-function App() {
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <NavBar /> {/* Đặt Navbar ở đầu trang */}
+      <main>
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/add-room" component={AddRoomComponent} />
+          <Route path="/edit-room/:roomId" component={EditRoomComponent} />
+          <Route path="/existing-rooms" component={ExistingRooms} />
+          <Route path="/browse-all-room" component={RoomListing} />
+          <Route path="/admin" component={Admin} />
+        </Switch>
+      </main>
+      <Footer /> {/* Đặt Footer ở cuối trang */}
+    </Router>
   );
 }
 
