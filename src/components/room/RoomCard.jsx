@@ -21,7 +21,7 @@ const RoomCard = ({ room }) => {
                     {room.roomPrice}
                     <span style={{ position: "relative", top: "-1px" }}> VNĐ</span>
                    </Card.Title>                  
-                    <Card.Text>Some room information goes here for the guest to read through</Card.Text>
+                    <Card.Text>Some room information goes here for the guest to read throughhhh</Card.Text>
                   </div>
                   <div className="flex-shrink-0 mt-3">
                     <Link to={`/bookings/${room.id}`} className="btn btn-hotel btn-sm" style={{ color: "darkgoldenrod", fontFamily: "'Courier New', Courier, monospace", fontSize: "medium" }}>View/ Book Now</Link> {/* Corrected 'bnt-sm' to 'btn-sm' */}
