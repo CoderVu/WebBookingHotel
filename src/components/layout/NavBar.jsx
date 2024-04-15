@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import {NavLink } from 'react-router-dom';
 
 const NavBar = () => {
     const [showAccount, setShowAccount] = useState(false);
@@ -12,7 +12,7 @@ const NavBar = () => {
         <nav className='navbar navbar-expand-lg bg-body-tertiary px-5 shadow mt-5 sticky-top'>
             <div className='container-fluid'> {/* Corrected the class name 'continaer-fluid' to 'container-fluid' */}
                 <NavLink to='/' className='navbar-brand'> {/* Changed Link to NavLink */}
-                    <span className='hotel-color'>Khach San ABC</span>
+                    <span className='hotel-color'>Trang chủ</span>
                 </NavLink>
                 <button
                     className='navbar-toggler'
@@ -44,14 +44,13 @@ const NavBar = () => {
                             </NavLink>
                         </li>
                         <li className='nav-item dropdown'>
-                            <a className={`nav-link dropdown-toggle ${showAccount ? "show" : ""}`}
-                                href="#"
-                                role="button"
+                            <button className={`nav-link dropdown-toggle ${showAccount ? "show" : ""}`}
+                                type="button"
                                 data-bs-toggle="dropdown"
                                 aria-expanded="false"
                                 onClick={handleShowAccountClick}>
                                 Account
-                            </a>
+                            </button>
                             <ul className={`dropdown-menu ${showAccount ? "show" : ""}`}
                                 aria-labelledby="navbarDropdown">
                                 <li>
