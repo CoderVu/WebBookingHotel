@@ -36,4 +36,4 @@ const DateSlider = ({ onDateChange, onFilterChange }) => {
 	)
 }
 
-export default DateSlider;
+export default DateSlider
