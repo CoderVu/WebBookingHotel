@@ -39,7 +39,7 @@ const RoomTypeSelector = ({ handleRoomInputChange, newRoom }) => {
 								handleRoomInputChange(e)
 							}
 						}}
-						value={newRoom.roomType}>
+						value={newRoom ? newRoom.roomType : ""}>
 						<option value="">Select a room type</option>
 						<option value={"Add New"}>Add New</option>
 						{roomTypes.map((type, index) => (

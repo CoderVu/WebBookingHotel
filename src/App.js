@@ -20,6 +20,7 @@ import EditRoom from './components/room/EditRoomComponent';
 import RequireAuth from './components/auth/RequireAuth';
 import Registration from "../src/components/auth/Registration";
 import Profile from "../src/components/auth/Profile";
+import AdminRoute from './components/home/AdminRoute';
 
 const App = () => {
   return (
@@ -28,9 +29,10 @@ const App = () => {
         <NavBar />
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/edit-room/:roomId" component={EditRoom} />
-          <Route exact path="/existing-rooms" component={ExistingRooms} />
-          <Route exact path="/add-room" component={AddRoomComponent} />
+          {/* Bọc các route chỉ cho phép ADMIN truy cập bằng AdminRoute */}
+          <AdminRoute exact path="/edit-room/:roomId" component={EditRoom} />
+          <AdminRoute exact path="/existing-rooms" component={ExistingRooms} />
+          <AdminRoute exact path="/add-room" component={AddRoomComponent} />
 
           <Route
             exact

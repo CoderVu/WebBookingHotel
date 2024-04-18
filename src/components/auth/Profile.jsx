@@ -152,40 +152,39 @@ const Profile = () => {
 
 							{bookings.length > 0 ? (
 								<table className="table table-bordered table-hover shadow">
-									<thead>
-										<tr>
-											<th scope="col">Booking ID</th>
-											<th scope="col">Room ID</th>
-											<th scope="col">Room Type</th>
-											<th scope="col">Check In Date</th>
-											<th scope="col">Check Out Date</th>
-											<th scope="col">Confirmation Code</th>
-											<th scope="col">Status</th>
-										</tr>
-									</thead>
-									<tbody>
-										{bookings.map((booking, index) => (
-											<tr key={index}>
-												<td>{booking.id}</td>
-												<td>{booking.room.id}</td>
-												<td>{booking.room.roomType}</td>
-												<td>
-													{moment(booking.checkInDate).subtract(1, "month").format("MMM Do, YYYY")}
-												</td>
-												<td>
-													{moment(booking.checkOutDate)
-														.subtract(1, "month")
-														.format("MMM Do, YYYY")}
-												</td>
-												<td>{booking.bookingConfirmationCode}</td>
-												<td className="text-success">On-going</td>
-											</tr>
-										))}
-									</tbody>
+								  <thead>
+									<tr>
+									  <th scope="col">Booking ID</th>
+									  <th scope="col">Room ID</th>
+									  <th scope="col">Room Type</th>
+									  <th scope="col">Check In Date</th>
+									  <th scope="col">Check Out Date</th>
+									  <th scope="col">Confirmation Code</th>
+									  <th scope="col">Status</th>
+									</tr>
+								  </thead>
+								  <tbody>
+									{bookings.map((booking, index) => (
+									  <tr key={index}>
+										<td>{booking.id}</td>
+										<td>{booking.room ? booking.room.id : ''}</td>
+										<td>{booking.room ? booking.room.roomType : ''}</td>
+										<td>
+										  {moment(booking.checkInDate).subtract(1, "month").format("MMM Do, YYYY")}
+										</td>
+										<td>
+										  {moment(booking.checkOutDate).subtract(1, "month").format("MMM Do, YYYY")}
+										</td>
+										<td>{booking.bookingConfirmationCode}</td>
+										<td className="text-success">On-going</td>
+									  </tr>
+									))}
+								  </tbody>
 								</table>
-							) : (
+							  ) : (
 								<p>You have not made any bookings yet.</p>
-							)}
+							  )}
+							  
 
 							<div className="d-flex justify-content-center">
 								<div className="mx-2">
