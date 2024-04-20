@@ -19,7 +19,7 @@ const BookingSummary = ({ booking, payment, isFormValid }) => {
       const confirmationCode = await bookRoom(roomId, booking);
       setIsBookingConfirmed(true);
       history.push("/booking-success", { 
-        message: `Room booked successfully. Your booking confirmation code is ${confirmationCode}`,
+        message: `${confirmationCode}`,
         confirmationCode: confirmationCode
       });
     } catch (error) {
@@ -36,7 +36,7 @@ const BookingSummary = ({ booking, payment, isFormValid }) => {
         const confirmationCode = await bookRoom(roomId, booking);
         setIsBookingConfirmed(true);
         history.push("/booking-success", { 
-          message: `Room booked successfully. Your booking confirmation code is ${confirmationCode}`
+          message: `${confirmationCode}`
       });
       
       } catch (error) {

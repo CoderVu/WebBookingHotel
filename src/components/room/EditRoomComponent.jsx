@@ -53,7 +53,8 @@ const EditRoom = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await updateRoom(roomId, room);
+      const token = localStorage.getItem("token"); // Lấy token từ local storage
+      const response = await updateRoom(roomId, room, token); // Truyền token vào hàm updateRoom
       if (response) {
         setSuccessMessage('Room updated successfully');
         setRoom(response.data);
@@ -64,6 +65,7 @@ const EditRoom = () => {
       setErrorMessage(error.message);
     }
   };
+  
 
   // Render
   return (
