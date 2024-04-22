@@ -34,25 +34,26 @@ export async function AddRoom(photo, roomType, roomPrice) {
 }
 
 // This function gets all room types from the database
+// This function gets all room types from the database
 export async function getRoomTypes() {
-	try {
-		const response = await api.get("/api/v1/rooms/room/types")
-		return response.data
-	} catch (error) {
-		throw new Error("Error fetching room types")
-	}
+  try {
+    const response = await api.get("/api/v1/rooms/room/types");
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching room types:", error);
+    throw new Error(`Error fetching room types: ${error.message}`);
+  }
 }
-
-
 
 // This function gets all rooms from the database
 export async function getAllRooms() {
-	try {
-		const result = await api.get("/api/v1/rooms/all-rooms")
-		return result.data
-	} catch (error) {
-		throw new Error("Error fetching rooms")
-	}
+  try {
+    const result = await api.get("/api/v1/rooms/all-rooms");
+    return result.data;
+  } catch (error) {
+    console.error("Error fetching rooms:", error);
+    throw new Error(`Error fetching rooms: ${error.message}`);
+  }
 }
 
 // This function deletes a room from the database
@@ -236,15 +237,12 @@ export async function getUser(userId) {
   }
 }
 
-// This function gets user bookings by user ID
-export async function getBookingsByUserId(userId) {
+// This function gets user bookings by email
+export async function getUserBookingsByEmail(email) {
   try {
-    const response = await api.get(`/api/v1/bookings/user/${userId}/bookings`, {
-      headers: getHeader()
-    });
+    const response = await api.get(`/api/v1/bookings/history-booking/email/${email}`);
     return response.data;
   } catch (error) {
-    console.error("Error fetching bookings:", error.message);
-    throw new Error("Failed to fetch bookings");
+    throw new Error(`Error fetching user bookings: ${error.message}`);
   }
 }
