@@ -6,7 +6,7 @@ const AdminRoute = ({ component: Component, ...rest }) => {
   const { user } = useContext(AuthContext);
 
   // Kiểm tra xem người dùng có phải là ADMIN không
-  const isAdmin = user && user.roles && user.roles.includes('ADMIN');
+  const isAdmin = user && user.roles && user.roles.includes('ROLE_ADMIN');
 
   return (
     <Route

@@ -1,31 +1,43 @@
-import { parseISO } from "date-fns"
-import React, { useState, useEffect } from "react"
-import DateSlider from "../common/DateSlider"
-
+import { parseISO } from "date-fns";
+import React, { useState, useEffect } from "react";
+import DateSlider from "../common/DateSlider";
+import { cancelBooking } from "../utils/ApiFunctions" // Import the cancelBooking function
 const BookingsTable = ({ bookingInfo, handleBookingCancellation }) => {
 	const [filteredBookings, setFilteredBookings] = useState(bookingInfo)
 
-	const filterBooknigs = (startDate, endDate) => {
-		let filtered = bookingInfo
+	const filterBookings = (startDate, endDate) => {
+		let filtered = bookingInfo;
 		if (startDate && endDate) {
 			filtered = bookingInfo.filter((booking) => {
-				const bookingStarDate = parseISO(booking.checkInDate)
-				const bookingEndDate = parseISO(booking.checkOutDate)
+				const bookingStartDate = parseISO(booking.checkInDate);
+				const bookingEndDate = parseISO(booking.checkOutDate);
 				return (
-					bookingStarDate >= startDate && bookingEndDate <= endDate && bookingEndDate > startDate
-				)
-			})
+					bookingStartDate >= startDate && 
+					bookingEndDate <= endDate && 
+					bookingEndDate > startDate
+				);
+			});
 		}
-		setFilteredBookings(filtered)
+		setFilteredBookings(filtered);
 	}
 
 	useEffect(() => {
-		setFilteredBookings(bookingInfo)
-	}, [bookingInfo])
+		setFilteredBookings(bookingInfo);
+	}, [bookingInfo]);
+	const handleCancelBooking = (bookingId) => {
+		if (bookingId) { // Check if bookingId is not null or undefined
+		  // Proceed with cancellation logic
+		  handleBookingCancellation(bookingId);
+		} else {
+		  console.error("Invalid booking ID:", bookingId);
+		}
+	  };
+	  
+	  
 
 	return (
 		<section className="p-4">
-			<DateSlider onDateChange={filterBooknigs} onFilterChange={filterBooknigs} />
+			<DateSlider onDateChange={filterBookings} onFilterChange={filterBookings} />
 			<table className="table table-bordered table-hover shadow">
 				<thead>
 					<tr>
@@ -39,7 +51,7 @@ const BookingsTable = ({ bookingInfo, handleBookingCancellation }) => {
 						<th>Guest Email</th>
 						<th>Adults</th>
 						<th>Children</th>
-						<th>Total Guest</th>
+						<th>Total Guests</th>
 						<th>Confirmation Code</th>
 						<th colSpan={2}>Actions</th>
 					</tr>
@@ -56,23 +68,24 @@ const BookingsTable = ({ bookingInfo, handleBookingCancellation }) => {
 							<td>{booking.guestFullName}</td>
 							<td>{booking.guestEmail}</td>
 							<td>{booking.numOfAdults}</td>
-							<td>{booking.numOfChilren}</td>
+							<td>{booking.numOfChildren}</td>
 							<td>{booking.totalNumOfGuest}</td>
 							<td>{booking.bookingConfirmationCode}</td>
 							<td>
-								<button
-									className="btn btn-danger btn-sm"
-									onClick={() => handleBookingCancellation(booking.id)}>
-									Cancel
-								</button>
+							<button
+							className="btn btn-danger btn-sm"
+							onClick={() => handleCancelBooking(booking.bookingId)}>
+							Cancel
+						  </button>
+						  
 							</td>
 						</tr>
 					))}
 				</tbody>
 			</table>
-			{filterBooknigs.length === 0 && <p> No booking found for the selected dates</p>}
+			{filteredBookings.length === 0 && <p>No booking found for the selected dates</p>}
 		</section>
 	)
 }
 
-export default BookingsTable
+export default BookingsTable;
