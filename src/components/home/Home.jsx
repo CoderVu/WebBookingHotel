@@ -21,12 +21,24 @@ const Home = () => {
 			<div className="container">
 
 				<RoomSearch />
+				<RoomCarousel/>
 				<RoomCarousel />
+				<RoomCarousel />
+				<RoomCarousel />
+				<RoomCarousel />
+				<RoomCarousel />
+				<RoomCarousel />
+				<RoomCarousel />
+				<RoomCarousel />
+				<RoomCarousel />
+				<RoomCarousel />
+				<RoomCarousel />
+				<RoomCarousel />
+				
+
+
 				<Parallax />
-				<RoomCarousel />
 				<HotelService />
-				<Parallax />
-				<RoomCarousel />
 			</div>
 		</section>
 	)

@@ -37,9 +37,6 @@ const RoomCarousel = () => {
 
     return (
         <section className="bg-light mb-5 mt-5 shadow">
-            <Link to="/browse-all-rooms" className="hotel-color text-center" style={{ color: "darkgoldenrod", fontFamily: "'Courier New', Courier, monospace", fontSize: "medium" }}>
-                Browse All Rooms
-            </Link>
             <Container>
                 <Carousel indicators={false}>
                     {chunkedRooms.map((group, index) => (

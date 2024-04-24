@@ -19,7 +19,7 @@ body {
  }
 
  .navbar .navbar-nav .nav-item::after{
-  position: absolute;
+  position: relative; /* Đảm bảo navbar không bị che phủ bởi phần tiêu đề */
   bottom: 0;
   left: 0;
   right: 0;
@@ -93,7 +93,7 @@ body {
 
 .header {
   position: relative;
-  height: 150px;
+  height: 700px;
   background-size: cover;
   background-image: url("../assets/images/services4.jpg");
   background-position: center center;
@@ -191,15 +191,23 @@ body {
 /* The header banner */
 .header-banner {
   background-image:  url("../assets/images/services-1.jpg");
-   background-size: cover;
+  background-size: cover;
   background-position: center;
-   position: relative;
+  position: relative;
+  z-index: 1000; /* Đảm bảo phần tiêu đề hiển thị phía trên */
   height: 80vh;
  }
+ h1 {
+  font-size: 40px;
+  color: #fff;
+  text-align: center;
+  padding-top: 60%;
+  font-family: 'Courier New', Courier, monospace;
+}
 
-.header-banner {
+
+.navbar {
   position: relative;
-  height: 500px;
 }
 
 @media only screen and (max-width: 768px) {

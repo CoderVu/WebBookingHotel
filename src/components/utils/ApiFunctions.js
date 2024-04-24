@@ -34,16 +34,17 @@ export async function AddRoom(photo, roomType, roomPrice) {
 }
 
 // This function gets all room types from the database
-// This function gets all room types from the database
 export async function getRoomTypes() {
   try {
     const response = await api.get("/api/v1/rooms/room/types");
     return response.data;
   } catch (error) {
     console.error("Error fetching room types:", error);
-    throw new Error(`Error fetching room types: ${error.message}`);
+    // Handle the error gracefully
+    return []; // Return an empty array or any default value
   }
 }
+
 
 // This function gets all rooms from the database
 export async function getAllRooms() {
@@ -136,7 +137,11 @@ export async function getAllBookings() {
 // This function gets a booking by its confirmation code
 export async function getBookingByConfirmationCode(confirmationCode) {
 	try {
-		const result = await api.get(`/api/v1/bookings/confirmation/${confirmationCode}`)
+    const headers = getHeader(); // Lấy headers từ hàm getHeader()
+    console.log(headers); // In ra console.log
+		const result = await axios.get(`/api/v1/bookings/confirmation/${confirmationCode}`,{
+      headers: headers
+    });
 		return result.data
 	} catch (error) {
 		if (error.response && error.response.data) {
@@ -246,3 +251,17 @@ export async function getUserBookingsByEmail(email) {
     throw new Error(`Error fetching user bookings: ${error.message}`);
   }
 }
+export async function updateProfileUserById(userId, userData) {
+  try {
+    const headers = getHeader();
+    console.log(headers);
+    const response = await axios.post(`/api/v1/users/update/${userId}`, userData, {
+      headers: headers
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Error updating profile:", error);
+    throw new Error("Error updating profile");
+  }
+}
+

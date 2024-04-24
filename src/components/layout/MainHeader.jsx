@@ -1,17 +1,22 @@
-import React from "react"
+import React from "react";
 
 const MainHeader = () => {
-	return (
-		<header className="header-banner">
-			<div className="overlay"></div>
-			<div className="animated-texts overlay-content">
-				<h1>
-					Welcome to <span className="hotel-color"> lakeSide Hotel</span>
-				</h1>
-				<h4>Experience the Best Hospitality in Town</h4>
-			</div>
-		</header>
-	)
+    return (
+        <header className="header-banner position-relative">
+            <div className="overlay"></div>
+            <div className="container position-relative">
+                <div className="row">
+                    <div className="col-md-8">
+                        <div className="animated-texts overlay-content">
+                            <h1 className="display-3 mb-4">
+                                <span className="hotel-color">WELCOME TO HOTEL DUT</span>
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    );
 }
 
 export default MainHeader;

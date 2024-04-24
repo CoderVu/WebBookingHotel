@@ -11,7 +11,7 @@ const ExistingRooms = () => {
   const [roomsPerPage] = useState(8);
   const [isLoading, setIsLoading] = useState(false);
   const [filteredRooms, setFilteredRooms] = useState([]);
-  const [selectedRoomType, setSelectedRoomType] = useState("");
+  const [selectedRoomType] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -29,6 +29,7 @@ const ExistingRooms = () => {
       setErrorMessage(error.message);
     }
   };
+
 
   useEffect(() => {
     if (selectedRoomType === "") {

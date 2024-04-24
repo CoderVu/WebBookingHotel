@@ -1,6 +1,8 @@
 import React from "react"
-import { Container, Row, Col, Card } from "react-bootstrap"
+import { Row, Col, Card } from "react-bootstrap"
 import Header from "./Header"
+// Remove the import statement for 'Card' since it is already imported above
+
 import {
 	FaClock,
 	FaCocktail,
@@ -29,7 +31,7 @@ const HotelService = () => {
 
 				<Row xs={1} md={2} lg={3} className="g-4 mt-2">
 					<Col>
-						<Card>
+						<Card className="shadow-sm">
 							<Card.Body>
 								<Card.Title className="hotel-color">
 									<FaWifi /> WiFi
