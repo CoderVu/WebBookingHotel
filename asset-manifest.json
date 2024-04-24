@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/WebBookingHotel/static/css/main.a022f7cb.css",
-    "main.js": "/WebBookingHotel/static/js/main.58ce019c.js",
+    "main.js": "/WebBookingHotel/static/js/main.eace7457.js",
     "static/media/services-1.jpg": "/WebBookingHotel/static/media/services-1.7b5df5c9e036a0e773fe.jpg",
     "static/media/parrall.jpg": "/WebBookingHotel/static/media/parrall.e6f2e652b163998f282e.jpg",
     "static/media/services4.jpg": "/WebBookingHotel/static/media/services4.4a0c709e2f2d30f37d1d.jpg",
     "index.html": "/WebBookingHotel/index.html",
     "main.a022f7cb.css.map": "/WebBookingHotel/static/css/main.a022f7cb.css.map",
-    "main.58ce019c.js.map": "/WebBookingHotel/static/js/main.58ce019c.js.map"
+    "main.eace7457.js.map": "/WebBookingHotel/static/js/main.eace7457.js.map"
   },
   "entrypoints": [
     "static/css/main.a022f7cb.css",
-    "static/js/main.58ce019c.js"
+    "static/js/main.eace7457.js"
   ]
 }
