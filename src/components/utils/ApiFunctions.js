@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const api = axios.create({
-	baseURL: "http://192.168.1.29:8081"
+	baseURL: "http://localhost:8081"
 })
 
 export const getHeader = () => {
@@ -21,6 +21,7 @@ export async function AddRoom(photo, roomType, roomPrice) {
   try {
     const response = await axios.post("/api/v1/rooms/add/new-room", formData, {
       headers: getHeader()
+
     });
     if (response.status === 200 || response.status === 201) {
       return true;
@@ -255,7 +256,7 @@ export async function updateProfileUserById(userId, userData) {
   try {
     const headers = getHeader();
     console.log(headers);
-    const response = await axios.post(`/api/v1/users/update/${userId}`, userData, {
+    const response = await axios.post(`/api/v1/auth/update-user/${userId}`, userData, {
       headers: headers
     });
     return response.data;

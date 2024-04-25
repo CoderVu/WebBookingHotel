@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { deleteUser, getUserBookingsByEmail ,getUser } from "../utils/ApiFunctions";
+import { deleteUser, getUserBookingsByEmail, getUser } from "../utils/ApiFunctions";
 import { useHistory } from "react-router-dom";
 import moment from "moment";
 import EditProfileForm from "./EditProfileForm";
@@ -36,7 +36,6 @@ const Profile = () => {
 
         fetchData();
     }, []);
-
 
     const handleDeleteAccount = async () => {
         const confirmed = window.confirm(
@@ -119,13 +118,17 @@ const Profile = () => {
                                             <div className="form-group row">
                                                 <label className="col-md-2 col-form-label fw-bold">Roles:</label>
                                                 <div className="col-md-10">
-                                                    <ul className="list-unstyled">
-                                                        {user.roles.map((role) => (
-                                                            <li key={role.id} className="card-text">
-                                                                {role.name}
-                                                            </li>
-                                                        ))}
-                                                    </ul>
+                                                    {user.roles && user.roles.length > 0 ? (
+                                                        <ul className="list-unstyled">
+                                                            {user.roles.map((role) => (
+                                                                <li key={role.id} className="card-text">
+                                                                    {role.name}
+                                                                </li>
+                                                            ))}
+                                                        </ul>
+                                                    ) : (
+                                                        <p>Chỉnh sửa thành công</p>
+                                                    )}
                                                 </div>
                                             </div>
                                             {!editing ? (

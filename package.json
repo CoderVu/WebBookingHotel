@@ -1,5 +1,4 @@
 {
-  "homepage": "https://CoderVu.github.io/WebBookingHotel",
   "name": "my-new-react-app",
   "version": "0.1.0",
   "private": true,
@@ -41,7 +40,6 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "proxy": "http://192.168.1.29:8081",
   "eslintConfig": {
     "extends": [
       "react-app",

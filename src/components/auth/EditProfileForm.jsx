@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { updateProfileUserById} from "../utils/ApiFunctions";
+import { updateProfileUserById } from "../utils/ApiFunctions";
 
 const EditProfileForm = ({ user, setUser }) => {
   const [formData, setFormData] = useState({
@@ -17,7 +17,12 @@ const EditProfileForm = ({ user, setUser }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const updatedUser = await updateProfileUserById(user.id, formData);
+      const updatedUser = await updateProfileUserById(user.id, {
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        email: formData.email,
+        password: formData.password,
+      });
       setUser(updatedUser);
       alert("Profile updated successfully!");
     } catch (error) {
