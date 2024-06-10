@@ -10,7 +10,7 @@ const Room = () => {
     const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
-    const [roomsPerPage] = useState(6); // Số lượng phòng trên mỗi trang
+    const [roomsPerPage] = useState(6);
     const [filteredData, setFilteredData] = useState([]);
 
     useEffect(() => {
@@ -49,25 +49,24 @@ const Room = () => {
             roomChunks.push(filteredData[i]);
         }
         return roomChunks.map((room) => (
-            <Row key={room.id} className="mb-3">
-                <Col md={18}>
-                    <RoomCard room={room} />
-                </Col>
-            </Row>
+            <Col key={room.id} md={12} className="mb-3">
+                <RoomCard room={room} />
+            </Col>
         ));
     };
 
     return (
         <Container>
             <Row>
-                <Col md={9} className="mb-3 mb-md-0">
+                <Col md={12} className="mb-3">
                     <RoomFilter data={data} setFilteredData={setFilteredData} />
                 </Col>
-            
             </Row>
-            {renderRooms()}
             <Row>
-                <Col md={9} className="d-flex align-items-center justify-content-center">
+                {renderRooms()}
+            </Row>
+            <Row>
+                <Col md={12} className="d-flex align-items-center justify-content-center">
                     <RoomPaginator 
                         currentPage={currentPage}
                         totalPages={totalPages}

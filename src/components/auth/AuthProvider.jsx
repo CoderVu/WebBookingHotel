@@ -26,6 +26,8 @@ export const AuthProvider = ({ children }) => {
     localStorage.setItem("userRole", decodedUser.roles)
     localStorage.setItem("token", token)
     setUser(decodedUser)
+    window.location.reload()
+    window.location.href = "/"
   }
 
   const handleLogout = () => {
@@ -33,6 +35,8 @@ export const AuthProvider = ({ children }) => {
     localStorage.removeItem("userRole")
     localStorage.removeItem("token")
     setUser(null)
+    window.location.reload()
+    window.location.href = "/"
   }
 
   return (

@@ -8,7 +8,6 @@ const BookingSuccess = () => {
 
     return (
         <div className='container'>
-            <Header title='Booking Status'/>
             <div className='mt-5'>
                 {message ? (
                     <div>

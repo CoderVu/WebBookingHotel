@@ -82,14 +82,7 @@ body {
 
 
 
-.parallax {
-  background-image: url("../assets//images/parrall.jpg");
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 50vh;
-}
+
 
 .header {
   position: relative;
@@ -103,13 +96,6 @@ body {
   font-size: 4rem;
   align-content: center;
 }
-
-.parallax {
-  margin-top: 50px;
-  color: white;
-  text-shadow: 2px 2px black;
-}
-
 .animated {
   animation-duration: 1s;
 }
@@ -231,3 +217,6 @@ body {
   height: 60px;
   text-align: center;
 }
+/* Login.css */
+
+
