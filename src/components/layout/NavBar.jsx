@@ -19,27 +19,9 @@ const NavBar = () => {
         padding: 0,
     };
 
-    const navLinkStyle = {
-        padding: "1em",
-    };
-
     const navItemStyle = {
         position: "relative",
     };
-
-    const navItemAfterStyle = {
-        position: "relative",
-        bottom: 0,
-        left: 100,
-        right: 0,
-        content: '',
-        backgroundColor: "rgb(169, 77, 123)",
-        width: 0,
-        margin: "0 auto",
-        height: "4px",
-        transition: "all .5s",
-    };
-
     const dropdownMenuStyle = {
         display: showAccount ? "block" : "none",
     };
@@ -66,26 +48,23 @@ const NavBar = () => {
                 <div className="collapse navbar-collapse" id="navbarScroll">
                     <ul className="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll">
                         <li className="nav-item" style={navItemStyle}>
-                            <NavLink className="nav-link" aria-current="page" to={"/browse-all-rooms"} style={navLinkStyle}>
+                            <NavLink className="nav-link" aria-current="page" to={"/browse-all-rooms"}>
                                 View Rooms
                             </NavLink>
-                            <span style={navItemAfterStyle}></span>
                         </li>
 
                         {isLoggedIn && userRole === "ROLE_ADMIN" && (
                             <li className="nav-item" style={navItemStyle}>
-                                <NavLink className="nav-link" aria-current="page" to={"/admin"} style={navLinkStyle}>
+                                <NavLink className="nav-link" aria-current="page" to={"/admin"}>
                                     Admin
                                 </NavLink>
-                                <span style={navItemAfterStyle}></span>
                             </li>
                         )}
 
                         <li className="nav-item" style={navItemStyle}>
-                            <NavLink className="nav-link" to={"/find-booking"} style={navLinkStyle}>
+                            <NavLink className="nav-link" to={"/find-booking"}>
                                 Find my booking
                             </NavLink>
-                            <span style={navItemAfterStyle}></span>
                         </li>
                     </ul>
 

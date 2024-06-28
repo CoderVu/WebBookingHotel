@@ -4,7 +4,6 @@ import AddRoomComponent from './components/room/AddRoomComponent';
 import ExistingRooms from './components/room/ExitstingRooms';
 import './components/styles/index.css'; // Import index.css file
 import Home from "../src/components/home/Home";
-import EditRoomComponent from './components/room/EditRoomComponent';
 import NavBar from './components/layout/NavBar'; // Import NavBar component
 import Footer from "../src/components/layout/Footer";
 import RoomListing from './components/room/RoomListing';
@@ -19,8 +18,10 @@ import { AuthProvider } from './components/auth/AuthProvider';
 import EditRoom from './components/room/EditRoomComponent';
 import RequireAuth from './components/auth/RequireAuth';
 import Registration from "../src/components/auth/Registration";
+import ResetPassword from "../src/components/auth/ResetPassword";
 import Profile from "../src/components/auth/Profile";
 import AdminRoute from './components/home/AdminRoute';
+import ConfirmResetPassword from '../src/components/auth/ConfirmResetPassword'
 
 const App = () => {
   return (
@@ -52,7 +53,8 @@ const App = () => {
 
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Registration} />
-
+          <Route exact path="/reset-password" component={ResetPassword} />
+          <Route exact path="/confirm-reset-password" component={ConfirmResetPassword} />
           <Route exact path="/profile" component={Profile} />
           <Route exact path="/logout" component={Logout} />
         </Switch>

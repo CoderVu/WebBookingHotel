@@ -8,51 +8,54 @@ body {
 }
 
 /* Navigation bar definitions */
- .navbar{
-  padding: 0;
- }
- .navbar .navbar-nav .nav-link{
-  padding: 1em;
- }
- .navbar .navbar-nav .nav-item{
+.navbar {
+  height: 80px; /* Chiều cao mới cho navbar */
+  position: sticky;
+  top: 0;
+  z-index: 1000; /* Đảm bảo navbar luôn hiển thị phía trên các thành phần khác */
+}
+
+.navbar-brand {
+  font-size: 1.5rem; /* Cỡ chữ lớn hơn cho navbar-brand */
+}
+.nav-item {
   position: relative;
- }
+  display: inline-block;
+  margin-right: 1em;
+  transition: color 0.5s;
+  transition: background-color 0.5s;
 
- .navbar .navbar-nav .nav-item::after{
-  position: relative; /* Đảm bảo navbar không bị che phủ bởi phần tiêu đề */
-  bottom: 0;
-  left: 0;
-  right: 0;
+}
+
+.nav-link {
+  padding: 1em;
+  position: relative;
+  display: inline-block;
+  color: inherit;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 1.2em;
+  font-weight: 500;
+  transition: color 0.5s;
+
+}
+
+.nav-item::after {
   content: '';
-  background-color:rgb(169, 77, 123) ;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgb(169, 77, 123);
   width: 0;
-  margin: 0 auto;
   height: 4px;
-  transition: all .5s;
- }
- .navbar .navbar-nav .nav-item:hover::after{
+  transition: width 0.5s;
+}
+
+.nav-item:hover::after {
   width: 100%;
- }
- .navbar-dark .navbar-nav .nav-link {
-  color: rgb(25, 24, 24);
+  height: 4px;
 }
-
-.navbar-dark .navbar-brand {
-  color: rgb(25, 24, 24);
-}
-
- @media screen and (min-width: 992px){
-  .navbar{
-  padding: 0;
- }
- .navbar .navbar-nav .nav-link{
-  padding: 1em 0;
- }
- .navbar .navbar-nav .nav-item{
-  margin: 0 1em;
- }
- }
-
   /* Hotel custom color */
  .btn-hotel{
   background-color: rgb(169, 77, 123);
@@ -217,6 +220,109 @@ body {
   height: 60px;
   text-align: center;
 }
-/* Login.css */
+/* Resetpass.css */
 
+/* src/components/auth/ResetPassword.css */
 
+.reset-password-container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.reset-password-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.reset-password-container .form-group {
+  margin-bottom: 15px;
+}
+
+.reset-password-container .form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.reset-password-container .form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.reset-password-container .btn-primary {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.reset-password-container .btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.reset-password-container .message {
+  margin-top: 15px;
+  text-align: center;
+  color: #333;
+}
+
+/* Admin dashbord */
+/* src/components/Admin.css */
+
+.admin-container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.admin-container h2 {
+  color: #333;
+}
+
+.admin-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.admin-link {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+  padding: 10px 20px;
+  border: 1px solid #007bff;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.admin-link:hover {
+  background-color: #0056b3;
+  color: #fff;
+}
+
+.admin-icon {
+  margin-right: 10px;
+  font-size: 1.5em;
+}

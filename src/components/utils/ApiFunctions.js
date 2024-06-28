@@ -204,7 +204,36 @@ export async function loginUser(login) {
     return null;
   }
 }
-
+export const resetPassword = (email) => {
+  const headers = getHeader(); 
+  console.log(headers); 
+  return axios.post('/api/v1/auth/reset-password', null, {
+    headers: headers, 
+    params: {
+      email: email
+    }
+  });
+};
+// This function confirmResetPassword
+export const confirmResetPassword = (email,otp, newPassword) => {
+  try {
+    const headers = getHeader();
+    console.log(headers); 
+    const response = axios.post('/api/v1/auth/confirm-reset-password', null, {
+      headers: headers, 
+      params: {
+        email: email,
+        otp: otp,
+        newPassword: newPassword
+      }
+    });
+    return response.data;
+  }
+  catch (error) {
+    console.error("Error confirming password:", error);
+    throw new Error("Error confirming password");
+  }
+};
 // This function gets the user profile
 export async function getUserProfile(userId) {
   try {
@@ -264,5 +293,6 @@ export async function updateProfileUserById(userId, userData) {
     console.error("Error updating profile:", error);
     throw new Error("Error updating profile");
   }
+
 }
 
